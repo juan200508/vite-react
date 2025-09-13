@@ -51,9 +51,10 @@ export default function UploadPage(): JSX.Element {
             const formData = new FormData();
             formData.append("file", file);
 
-            const res = await fetch("http://98.71.169.48:8000/upload/", {  // 👈 ajusta puerto si es otro
+            const res = await fetch("https://13439a246275.ngrok-free.app/upload/", {  
             method: "POST",
             body: formData,
+            headers: {"ngrok-skip-browser-warning": "true"}
             });
 
             if (res.ok) {

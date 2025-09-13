@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_URL = "http://98.71.169.48:8000/files/"; // Ajusta la URL si tu backend está en otro puerto
+const API_URL = "https://13439a246275.ngrok-free.app/files/";
 
 const FileList = () => {
     const [files, setFiles] = useState<string[]>([]);
@@ -10,7 +10,7 @@ const FileList = () => {
     useEffect(() => {
         const fetchFiles = async () => {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(API_URL, {headers : {"ngrok-skip-browser-warning": "true"}});
             if (!response.ok) {
             throw new Error("Error al obtener los archivos");
             }
